@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:47:59 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/11 19:49:55 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:56:48 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned int b;
+	unsigned int	b;
 
 	if (n < 0)
 	{

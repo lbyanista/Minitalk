@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 19:44:35 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/11 19:47:01 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:57:21 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -22,5 +22,4 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 		i++;
 	}
-	
 }

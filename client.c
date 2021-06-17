@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:56:06 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 18:08:43 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:51:20 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	send_str(int pid, char *str)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac != 3)
 		usage();

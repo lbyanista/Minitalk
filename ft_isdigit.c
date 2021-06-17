@@ -6,13 +6,13 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:27:02 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/16 11:27:22 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/17 18:54:36 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

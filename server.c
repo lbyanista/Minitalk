@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:51:47 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 17:58:42 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/17 19:03:45 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	send_char(int sig)
 {
-	static int i = 0;
-	static int r = 0;
+	static int	i;
+	static int	r;
 
 	if (sig == SIGUSR1)
 		i += 1 << (7 - r);
@@ -90,19 +90,17 @@ void	send_char(int sig)
 // 	// }
 // }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	pid_t pid;
+	pid_t	pid;
 
-   	pid = getpid();
-
-   	ft_putstr("server pid: ");
-   	ft_putnbr(pid);
-   	ft_putchar('\n');
-
+	pid = getpid();
+	ft_putstr("server pid: ");
+	ft_putnbr(pid);
+	ft_putchar('\n');
 	signal(SIGUSR2, send_char);
 	signal(SIGUSR1, send_char);
-   	while (1)
-		   pause();
-    return (0);
+	while (1)
+		pause();
+	return (0);
 }

@@ -6,23 +6,27 @@
 #    By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/11 10:50:14 by mlabrayj          #+#    #+#              #
-#    Updated: 2021/06/11 14:10:19 by mlabrayj         ###   ########.fr        #
+#    Updated: 2021/06/17 11:20:48 by mlabrayj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ./server
+NAME = ./minitalk
 
-SRC = server.c client.c
+SERVER = server
 
-FLAGS = -Wall -Wextra -Werror
+CLIENT = client
 
-all: $(NAME)
+SRC = ft_putchar.c ft_putstr.c ft_putnbr.c ft_atoi.c ft_isdigit.c ft_strlen.c \
+		ft_strdup.c
 
-$(NAME): $(SRC)
-		@gcc $(SRC) $(FLAGS) -o $(NAME)
+# FLAGS = -Wall -Wextra -Werror
+
+all:
+	@gcc $(FLAGS) $(SRC) server.c -o $(SERVER)
+	@gcc $(FLAGS) $(SRC) client.c -o $(CLIENT)
 
 clean:
-	@rm -rf $(NAME) *dSYM *.gch
+	@rm -rf $(SERVER) $(CLIENT) *dSYM *.gch
 
 fclean: clean
 

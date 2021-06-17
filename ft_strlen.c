@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:09:43 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 11:20:26 by mlabrayj         ###   ########.fr       */
+/*   Created: 2021/06/16 11:28:40 by mlabrayj          #+#    #+#             */
+/*   Updated: 2021/06/16 11:29:05 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <signal.h>
-#include <stdlib.h>
-#include <string.h>
+#include "minitalk.h"
 
 
-int     client(pid_t pid, char *str);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putnbr(int n);
-int		ft_atoi(const char *c);
-int     ft_strlen(const char *str);
-int		ft_isdigit(int c);
-char	*ft_strdup(const char *str);
+int ft_strlen(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return(i);
+}

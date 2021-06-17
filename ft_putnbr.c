@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 11:09:43 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 11:20:26 by mlabrayj         ###   ########.fr       */
+/*   Created: 2021/06/11 19:47:59 by mlabrayj          #+#    #+#             */
+/*   Updated: 2021/06/11 19:49:55 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <signal.h>
-#include <stdlib.h>
-#include <string.h>
+#include "minitalk.h"
 
+void	ft_putnbr(int n)
+{
+	unsigned int b;
 
-int     client(pid_t pid, char *str);
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_putnbr(int n);
-int		ft_atoi(const char *c);
-int     ft_strlen(const char *str);
-int		ft_isdigit(int c);
-char	*ft_strdup(const char *str);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		b = n * -1;
+	}
+	else
+		b = n;
+	if (b >= 10)
+		ft_putnbr(b / 10);
+	ft_putchar(b % 10 + '0');
+}

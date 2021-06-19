@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:56:06 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 18:51:20 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/19 17:25:17 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,46 @@ void	usage(void)
 // 	printf("Done\n");
 // }
 
-void	send_char(char ascii, int r, int pid)
+void	send_char(int c, int pid)
 {
-	if (r > 0)
-		send_char(ascii / 2, r - 1, pid);
-	if ((ascii % 2) == 1)
+
+	int		i;
+	int		bit;
+
+	i = 7;
+	while (i >= 0)
 	{
-		if (kill(pid, SIGUSR1) == -1)
-		{
-			error("Error sending the signal\n");
-			exit(0);
-		}
+		bit = c & 1;
+		if (bit == 1)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(90);
+		c = c >> 1;
+		i--;
 	}
-	else
-	{
-		if (kill(pid, SIGUSR2) == -1)
-		{
-			ft_putstr("Error sending the signal\n");
-			exit(0);
-		}
-	}
-	usleep(100);
+	
+	// if (r > 0)
+	// 	send_char(ascii / 2, r - 1, pid);
+	// if ((ascii % 2) == 1)
+	// {
+	// 	if (kill(pid, SIGUSR1) == -1)
+	// 	{
+	// 		error("Error sending the signal\n");
+	// 		exit(0);
+	// 	}
+	// }
+	// else
+	// {
+	// 	if (kill(pid, SIGUSR2) == -1)
+	// 	{
+	// 		ft_putstr("Error sending the signal\n");
+	// 		exit(0);
+	// 	}
+	// }
+	// usleep(100);
+	// 01100010
+	// 11011001 10000001
 }
 
 void	send_str(int pid, char *str)
@@ -96,7 +115,7 @@ void	send_str(int pid, char *str)
 	i = 0;
 	while (str[i])
 	{
-		send_char(str[i], 7, pid);
+		send_char(str[i], pid);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:51:47 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/17 19:03:45 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/19 17:38:29 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,57 @@
 
 void	send_char(int sig)
 {
-	static int	i;
-	static int	r;
+	// static unsigned char	i;
+	// static unsigned char	r;
+	// static unsigned char tmp;
+
+	// tmp = 1;
+
+	// // printf("*\n");
+	// //printf("%d\n", sig);
+	// if (sig == SIGUSR1)
+	// 	printf("1\n");
+	// else
+	// 	printf("0\n");
+	
+	
+	// if (sig == SIGUSR1)
+	// 	r = r | tmp;
+	// tmp = tmp << 1;
+	// i++;
+	// 	// i += r << 1;
+	// // r++;
+	// if (i == 8)
+	// {
+	// 	ft_putchar(i);
+	// 	// write(1, &i ,1);
+	// 	i = 0;
+	// 	r = 0;
+	// 	tmp = 1;
+	// }
+
+	static int				n_bits = 0;
+	static unsigned char	c = 0;
+	static unsigned char	tmp_bit = 1;
 
 	if (sig == SIGUSR1)
-		i += 1 << (7 - r);
-	r++;
-	if (r == 8)
+		c = c | tmp_bit;
+	tmp_bit = tmp_bit << 1;
+	n_bits++;
+	if (n_bits == 8)
 	{
-		ft_putchar(i);
-		i = 0;
-		r = 0;
+		ft_putchar(c);
+		n_bits = 0;
+		tmp_bit = 1;
+		c = 0;
 	}
 }
+
+// static volatile int signalPid = -1;
+// void    get_pid_c(int sig, siginfo_t *info)
+// {
+//     signalPid = info->si_pid;
+// }
 
 // char	*ft_strjoin(char const *s1, char const *s2)
 // {

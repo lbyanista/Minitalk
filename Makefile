@@ -6,7 +6,7 @@
 #    By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/11 10:50:14 by mlabrayj          #+#    #+#              #
-#    Updated: 2021/06/21 15:15:50 by mlabrayj         ###   ########.fr        #
+#    Updated: 2021/06/21 15:50:10 by mlabrayj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,12 @@ SRC = ft_putchar.c ft_putstr.c ft_putnbr.c ft_atoi.c ft_isdigit.c ft_strlen.c \
 
 FLAGS = -Wall -Wextra -Werror
 
-all:
+all: $(SERVER) $(CLIENT)
+
+$(SERVER):
 	@gcc $(FLAGS) $(SRC) server.c -o $(SERVER)
+
+$(CLIENT):
 	@gcc $(FLAGS) $(SRC) client.c -o $(CLIENT)
 
 clean:

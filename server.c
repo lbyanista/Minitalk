@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:51:47 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/21 15:11:41 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:50:49 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	send_char(int sig)
 // 	// }
 // }
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	pid_t	pid;
 

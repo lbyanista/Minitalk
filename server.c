@@ -6,48 +6,36 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:51:47 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/19 17:38:29 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:11:41 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+// static char*	msg_delivery(char c, pid_t pid)
+// {
+// 	static char	*msg;
+// 	static int	i;
+
+// 	if (msg == NULL)
+// 		msg = (char *)malloc(sizeof(msg) * 500);
+// 	if (i < 500 )
+// 		msg[i++] = c;
+// 	if (c == '\0')
+// 	{
+// 		send_signals(msg, pid);
+// 		i = 0;
+// 	}
+// 	return (msg);
+// }
+
 void	send_char(int sig)
 {
-	// static unsigned char	i;
-	// static unsigned char	r;
-	// static unsigned char tmp;
-
-	// tmp = 1;
-
-	// // printf("*\n");
-	// //printf("%d\n", sig);
-	// if (sig == SIGUSR1)
-	// 	printf("1\n");
-	// else
-	// 	printf("0\n");
-	
-	
-	// if (sig == SIGUSR1)
-	// 	r = r | tmp;
-	// tmp = tmp << 1;
-	// i++;
-	// 	// i += r << 1;
-	// // r++;
-	// if (i == 8)
-	// {
-	// 	ft_putchar(i);
-	// 	// write(1, &i ,1);
-	// 	i = 0;
-	// 	r = 0;
-	// 	tmp = 1;
-	// }
-
-	static int				n_bits = 0;
+	static int				n_bits;
 	static unsigned char	c = 0;
 	static unsigned char	tmp_bit = 1;
 
-	if (sig == SIGUSR1)
+	if (sig == SIGUSR2)
 		c = c | tmp_bit;
 	tmp_bit = tmp_bit << 1;
 	n_bits++;
@@ -138,6 +126,8 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 	signal(SIGUSR2, send_char);
 	signal(SIGUSR1, send_char);
+	if (pid == -1)
+		return (-1);
 	while (1)
 		pause();
 	return (0);

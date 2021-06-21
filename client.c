@@ -6,17 +6,17 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:56:06 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/19 17:25:17 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/21 12:11:48 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	error(char *str_error)
-{
-	write(2, str_error, ft_strlen(str_error));
-	exit(1);
-}
+// void	error(char *str_error)
+// {
+// 	write(2, str_error, ft_strlen(str_error));
+// 	exit(1);
+// }
 
 void	usage(void)
 {
@@ -68,7 +68,6 @@ void	usage(void)
 
 void	send_char(int c, int pid)
 {
-
 	int		i;
 	int		bit;
 
@@ -77,36 +76,18 @@ void	send_char(int c, int pid)
 	{
 		bit = c & 1;
 		if (bit == 1)
-			kill(pid, SIGUSR1);
-		else
 			kill(pid, SIGUSR2);
+		else
+			kill(pid, SIGUSR1);
 		usleep(90);
 		c = c >> 1;
 		i--;
 	}
-	
-	// if (r > 0)
-	// 	send_char(ascii / 2, r - 1, pid);
-	// if ((ascii % 2) == 1)
-	// {
-	// 	if (kill(pid, SIGUSR1) == -1)
-	// 	{
-	// 		error("Error sending the signal\n");
-	// 		exit(0);
-	// 	}
-	// }
-	// else
-	// {
-	// 	if (kill(pid, SIGUSR2) == -1)
-	// 	{
-	// 		ft_putstr("Error sending the signal\n");
-	// 		exit(0);
-	// 	}
-	// }
-	// usleep(100);
+}
+	// 01100001 ==> 00110000 ==> 00011000
 	// 01100010
 	// 11011001 10000001
-}
+	// c >> 10000
 
 void	send_str(int pid, char *str)
 {

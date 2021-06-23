@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 14:48:38 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/22 15:27:40 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:09:33 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	send_char(int sig)
 
 int	main(void)
 {
-	pid_t	pid;
+	pid_t				pid;
 
 	pid = getpid();
 	ft_putstr("server pid: ");
@@ -41,8 +41,6 @@ int	main(void)
 	ft_putchar('\n');
 	signal(SIGUSR2, send_char);
 	signal(SIGUSR1, send_char);
-	if (pid == -1)
-		return (-1);
 	while (1)
 		pause();
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mlabrayj <mlabrayj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 12:51:47 by mlabrayj          #+#    #+#             */
-/*   Updated: 2021/06/21 15:26:14 by mlabrayj         ###   ########.fr       */
+/*   Updated: 2021/06/23 12:25:38 by mlabrayj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,6 @@ int	main(void)
 	ft_putchar('\n');
 	signal(SIGUSR2, send_char);
 	signal(SIGUSR1, send_char);
-	if (pid == -1)
-		return (-1);
 	while (1)
 		pause();
 	return (0);
